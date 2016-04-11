@@ -8,9 +8,9 @@ function demo(fileName)
 fprintf('Loading Dataset...\n')
 load(fileName);
 
+% centralization
 fprintf('Centralizing...\n')
-dataset.X = normZeroMean(X);
-dataset.X = normEqualVariance(X);
+dataset.X = normEqualMandV(X);
 
 fprintf('Data partition\n')
 
