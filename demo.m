@@ -8,14 +8,15 @@ function demo(fileName)
 fprintf('Loading Dataset...\n')
 load(fileName);
 
-% centralization
-fprintf('Centralizing...\n')
-dataset.X = normEqualMandV(X);
+% nomalization
+fprintf('nomalalizing...\n')
+dataset.X = normData(X);
 
 fprintf('Data partition\n')
 
 % reorder
 num_dataset = size( X, 1 );
+rng('default');
 neworder = randperm(num_dataset);
 dataset.X = dataset.X(neworder);
 
