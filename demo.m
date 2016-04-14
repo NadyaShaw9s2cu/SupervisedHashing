@@ -25,7 +25,7 @@ num_test = 1000;
 mid = num_dataset - num_test;
 dataset.train_id = 1:mid;
 dataset.test_id = mid+1:num_dataset;
-dataset.neighbourType = 'label';
+%dataset.neighbourType = 'label'; I think I dont need it right now
 dataset.label = dataset.label(neworder);
 
 % sparse
@@ -45,11 +45,11 @@ fprintf('Start training...\n')
 
 % Evaluation
 fprintf('Evaluating...\n')
-dataset.neighbourTest =calcNeighbour(dataset);
+dataset.neighbourTest =calcNeighbour(dataset, dataset.test_id, dataset.train_id);
 neighbourH = calcHammingRank(BicodeTrain, BicodeTest);
-[MAP, succRate] = calcMAP(neighbourH, dataset.neighbourTest);
+[MAP] = calcMAP(neighbourH, dataset.neighbourTest);
 
-fprintf('MAP: %f succRate:%f\n', MAP, succRate);
+fprintf('MAP: %f\n', MAP);
 fprintf('Train: %f(s)\n Test: %f(s)\n', timeTrain, timeTest);
 
 end
