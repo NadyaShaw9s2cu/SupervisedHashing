@@ -1,4 +1,4 @@
-function [BicodeTrain, BicodeTest, timeTrain, timeTest] = lfh(datset, method, codeLength)
+function [BicodeTrain, BicodeTest, timeTrain, timeTest] = lfhashing(datset, method, codeLength)
 	Xtrain = datset.X(datset.train_id);
 	Ntrain = size(Xtrain, 1);
 	Xtest  = datset.X(datset.test_id);

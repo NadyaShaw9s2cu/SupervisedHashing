@@ -41,7 +41,7 @@ codeLength = 64;
 
 % Training
 fprintf('Start training...\n')
-[BicodeTrain, BicodeTest, timeTrain, timeTest] = lfh(datset, method, codeLength);
+[BicodeTrain, BicodeTest, timeTrain, timeTest] = lfhashing(datset, method, codeLength);
 
 % Evaluation
 fprintf('Evaluating...\n')
