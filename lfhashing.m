@@ -12,8 +12,8 @@ function [BicodeTrain, BicodeTest, timeTrain, timeTest] = lfhashing(datset, meth
 	
 	% Learning--U
 	betaNorm = method.beta / Q;
-	calcS = @(Sc)calcNeighbour(datset, datset.train_id, datset.train_id(Sc));
-	U = learnU(Sc);
+	sNeighbour = @(Sc)calcNeighbour(datset, datset.train_id, datset.train_id(Sc));
+	U = learnU(U, beta, method.maxIter);
 	
 	% rounding
 	BicodeTrain = rounding(U);
